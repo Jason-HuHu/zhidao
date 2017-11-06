@@ -1,7 +1,7 @@
 package com.huxl.zhidao.controller;
 
 import com.huxl.zhidao.model.User;
-import com.huxl.zhidao.service.WendaService;
+import com.huxl.zhidao.service.ZhidaoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +25,13 @@ public class IndexController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
-    WendaService wendaService;
+    ZhidaoService zhidaoService;
 
     @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET})
     @ResponseBody
     public String index(HttpSession httpSession) {
         logger.info("VISIT HOME");
-        return wendaService.getMessage(2) + "Hello NowCoder" + httpSession.getAttribute("msg");
+        return zhidaoService.getMessage(2) + "Hello NowCoder" + httpSession.getAttribute("msg");
     }
 
     @RequestMapping(path = {"/profile/{groupId}/{userId}"})

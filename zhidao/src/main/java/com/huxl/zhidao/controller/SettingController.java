@@ -1,6 +1,6 @@
 package com.huxl.zhidao.controller;
 
-import com.huxl.zhidao.service.WendaService;
+import com.huxl.zhidao.service.ZhidaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +15,11 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class SettingController {
     @Autowired
-    WendaService wendaService;
+    ZhidaoService zhidaoService;
 
     @RequestMapping(path = {"/setting"}, method = {RequestMethod.GET})
     @ResponseBody
     public String setting(HttpSession httpSession) {
-        return "Setting OK. " + wendaService.getMessage(1);
+        return "Setting OK. " + zhidaoService.getMessage(1);
     }
 }

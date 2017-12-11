@@ -27,7 +27,7 @@ public class IndexController {
     @Autowired
     ZhidaoService zhidaoService;
 
-    @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET})
+    @RequestMapping(path = {"/1", "/index1"}, method = {RequestMethod.GET})
     @ResponseBody
     public String index(HttpSession httpSession) {
         logger.info("VISIT HOME");

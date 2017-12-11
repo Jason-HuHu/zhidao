@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-11-07 00:04:03
+Date: 2017-12-12 00:38:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,6 +26,19 @@ CREATE TABLE `comment` (
   `entity_id` int(11) DEFAULT NULL,
   `entity_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for login_ticket
+-- ----------------------------
+DROP TABLE IF EXISTS `login_ticket`;
+CREATE TABLE `login_ticket` (
+  `user_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `expired` datetime DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `ticket` varchar(255) DEFAULT '',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

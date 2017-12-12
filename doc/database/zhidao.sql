@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-12-12 00:38:46
+Date: 2017-12-13 00:57:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,12 +34,12 @@ CREATE TABLE `comment` (
 DROP TABLE IF EXISTS `login_ticket`;
 CREATE TABLE `login_ticket` (
   `user_id` int(11) NOT NULL,
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `expired` datetime DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   `ticket` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for message
@@ -74,10 +74,10 @@ CREATE TABLE `question` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `salt` varchar(255) DEFAULT NULL,
   `head_url` varchar(255) DEFAULT '' COMMENT '用户表',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;

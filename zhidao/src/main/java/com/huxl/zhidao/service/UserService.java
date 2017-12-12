@@ -74,5 +74,33 @@ public class UserService {
     }
 
 
+    public Map<String, Object> register(String username, String password) {
+        Map<String,Object> map = new HashMap<>();
+        if (StringUtils.isBlank(username)) {
+            map.put("msg","用户名不能为空");
+            return map;
+        }
+        if (StringUtils.isBlank(password)) {
+            map.put("msg","密码不能为空");
+            return map;
+        }
+        User user = userDAO.selectByName(username);
+        if (null != user) {
+            map.put("msg","此用户名已被注册");
+            return map;
+        }
 
+        //密码强度
+        user = new User();
+        user.setUserName(username);
+        user.setSalt(UUID.randomUUID().toString().substring(0,5));
+        user.setHeadUrl("");//todo 头像待完善
+        user.setPassword(ZhidaoUtil.MD5(password + user.getSalt()));
+        userDAO.addUser(user);
+
+        //登录
+        String ticket = addLoginTicket(user.getUserId());
+        map.put("ticket",ticket);
+        return map;
+    }
 }

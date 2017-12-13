@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author JasonHu
  * @Date 2017-12-11
- * 问题接口
+ * question表操作接口
  */
 @Repository
 @Mapper

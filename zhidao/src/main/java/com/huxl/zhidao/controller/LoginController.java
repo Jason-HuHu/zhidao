@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,7 +38,23 @@ public class LoginController {
                         HttpServletResponse response){
         try {
             Map<String, Object> map = userService.login(username,password);
-            return "login";
+            if (map.containsKey("ticket")) {
+                Cookie cookie = new Cookie("ticket",map.get("ticket").toString());
+                cookie.setPath("/");
+                if (rememberme) {
+                    cookie.setMaxAge(3600 * 24 * 5);
+                }
+                response.addCookie(cookie);
+                //todo eventProducer
+
+                if (StringUtils.isNotBlank(next)) {
+                    return "redirect" + next;
+                }
+                return "redirect:/";
+            }else {
+                model.addAttribute("msg",map.get("msg"));
+                return "login";
+            }
         }catch (Exception e) {
             logger.error("登录异常",e.getMessage());
             return "login";
@@ -75,5 +92,11 @@ public class LoginController {
             model.addAttribute("msg","服务器异常");
             return "login";
         }
+    }
+
+    @RequestMapping(path = {"/logout"},method = {RequestMethod.GET,RequestMethod.POST})
+    public String logout(@CookieValue("ticket") String ticket) {
+        userService.logout(ticket);
+        return "redirect:/";
     }
 }

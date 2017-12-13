@@ -103,4 +103,8 @@ public class UserService {
         map.put("ticket",ticket);
         return map;
     }
+
+    public void logout(String ticket) {
+        loginTicketDAO.updateStatus(ticket,1);
+    }
 }

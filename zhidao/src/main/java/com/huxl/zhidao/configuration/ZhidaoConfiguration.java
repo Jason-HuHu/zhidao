@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * @author JasonHu
+ * @date 2017-12-13
+ * 配置
+ */
 @Component
 public class ZhidaoConfiguration extends WebMvcConfigurerAdapter {
     @Autowired

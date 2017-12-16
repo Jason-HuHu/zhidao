@@ -1,5 +1,6 @@
 package com.huxl.zhidao.util;
 
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,23 @@ import java.security.MessageDigest;
  */
 public class ZhidaoUtil {
     private static final Logger logger = LoggerFactory.getLogger(ZhidaoUtil.class);
-
+    public static int ANOYMOUS_USERID = 111111;
+    public static String getJSONString (int code) {
+        JSONObject json = new JSONObject();
+        json.put("code",code);
+        return json.toJSONString();
+    }
+    public static String getJSONString (int code,String msg) {
+        JSONObject json = new JSONObject();
+        json.put("code",code);
+        json.put("msg",msg);
+        return json.toJSONString();
+    }
+    /**
+     * MD5加密函数
+     * @param key
+     * @return
+     */
     public static String MD5(String key) {
         char hexDigits[] = {
                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'

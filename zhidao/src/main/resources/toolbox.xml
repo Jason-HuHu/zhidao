@@ -1,3 +1,4 @@
+<!--通过在toolbox.xml中定义对象，可以在velocity中直接通过$object的方法读取该对象的值-->
 <toolbox>
     <tool>
         <key>date</key>

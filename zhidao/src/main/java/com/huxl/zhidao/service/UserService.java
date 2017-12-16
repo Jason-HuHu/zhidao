@@ -32,6 +32,10 @@ public class UserService {
     @Autowired
     LoginTicketDAO loginTicketDAO;
 
+    public User getUser(int userId) {
+        return userDAO.selectById(userId);
+    }
+
     public Map<String,Object> login(String username, String password) {
         Map<String,Object> map = new HashMap<>();
         if (StringUtils.isBlank(username)) {

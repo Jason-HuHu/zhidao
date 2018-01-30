@@ -3,8 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.huxl.zhidao.dao.FeedDAO">
     <sql id="table">feed</sql>
-    <sql id="selectFields">id, created_date,user_id, data, type
-    </sql>
+    <sql id="selectFields">id, created_date,user_id, data, type</sql>
+
     <select id="selectUserFeeds" resultType="com.huxl.zhidao.model.Feed">
         SELECT
         <include refid="selectFields"/>

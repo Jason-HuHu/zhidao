@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql57
-Source Server Version : 50717
-Source Host           : localhost:3306
+Source Server         : 阿里云
+Source Server Version : 50718
+Source Host           : huxl1234.mysql.rds.aliyuncs.com:3306
 Source Database       : zhidao
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-12-13 00:57:40
+Date: 2018-02-01 16:29:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,7 +39,7 @@ CREATE TABLE `login_ticket` (
   `status` tinyint(4) DEFAULT NULL,
   `ticket` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for message
@@ -64,7 +64,7 @@ CREATE TABLE `question` (
   `title` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `create_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `comment_count` int(11) NOT NULL,
   PRIMARY KEY (`question_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -80,4 +80,4 @@ CREATE TABLE `user` (
   `salt` varchar(255) DEFAULT NULL,
   `head_url` varchar(255) DEFAULT '' COMMENT '用户表',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;

@@ -48,6 +48,7 @@ public class QuestionComntroller {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             logger.error("添加问题失败",e.getMessage());
         }
 

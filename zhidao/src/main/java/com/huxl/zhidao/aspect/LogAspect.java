@@ -22,12 +22,9 @@ public class LogAspect {
     @Before("execution(* com.huxl.zhidao.controller.*Controller.*(..))")
     public void beforeMethod(JoinPoint joinPoint) {
         StringBuilder sb = new StringBuilder();
-//        if ( null == joinPoint.getArgs()) {
-//            return;
-//        }
-//        for (Object arg : joinPoint.getArgs()) {
-//            sb.append("arg:" + arg.toString() + "|");
-//        }
+        for (Object arg : joinPoint.getArgs()) {
+            sb.append("arg:" + arg.toString() + "|");
+        }
         logger.info("before method:" + sb.toString());
     }
 

@@ -7,6 +7,8 @@ import com.huxl.zhidao.model.ViewObject;
 import com.huxl.zhidao.service.CommentService;
 import com.huxl.zhidao.service.QuestionService;
 import com.huxl.zhidao.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,7 @@ import java.util.List;
  */
 @Controller
 public class HomeController {
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
     @Autowired
     QuestionService questionService;
     @Autowired

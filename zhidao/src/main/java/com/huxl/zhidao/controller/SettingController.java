@@ -1,6 +1,8 @@
 package com.huxl.zhidao.controller;
 
 import com.huxl.zhidao.service.ZhidaoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class SettingController {
+    private static final Logger logger = LoggerFactory.getLogger(SettingController.class);
     @Autowired
     ZhidaoService zhidaoService;
 

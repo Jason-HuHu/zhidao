@@ -4396,7 +4396,7 @@ iframe {
 
 .zm-question-collapsed-list-loading {
     height: 60px;
-    background: url(../images/img/spinner2.8f60205d.gif) no-repeat center
+    background: url(../images/img/spinner/lightgray-loading.e0eefd9c.gif) no-repeat center
 }
 
 .navigable-focusin {
@@ -5356,7 +5356,7 @@ html.flexbox .headline-reminder-users {
     bottom: 0;
     left: 0;
     z-index: 1;
-    background: url(../images/img/spinner2.8f60205d.gif) 44px no-repeat
+    background: url(../images/img/spinner/lightgray-loading.e0eefd9c.gif) 44px no-repeat
 }
 
 .actioncard {
@@ -8034,7 +8034,7 @@ html.no-touchevents .zm-topic-feed-page-item:hover {
     height: 16px;
     width: 16px;
     vertical-align: middle;
-    background: url(../images/img/spinner2.8f60205d.gif) no-repeat
+    background: url(../images/img/spinner/lightgray-loading.e0eefd9c.gif) no-repeat
 }
 
 #zh-topic-side-head .zu-entry-focus-button {
@@ -14189,7 +14189,7 @@ html.no-touchevents #zu-distraction-free-editor .back:hover,html.no-touchevents 
 .zh-hovercard-spinner {
     width: 45px;
     height: 30px;
-    background-image: url(../images/img/spinner2.8f60205d.gif);
+    background-image: url(../images/img/spinner/lightgray-loading.e0eefd9c.gif);
     background-repeat: no-repeat;
     background-position: center
 }
@@ -14979,7 +14979,7 @@ img[eeimg="2"] {
 .zm-img-uploader-loading {
     color: #999;
     padding: 0 0 0 20px;
-    background: url(../images/img/spinner2.8f60205d.gif) no-repeat;
+    background: url(../images/img/spinner/lightgray-loading.e0eefd9c.gif) no-repeat;
     vertical-align: 3px
 }
 
@@ -15468,7 +15468,7 @@ html.no-touchevents .zm-noti7-content-item:hover .zg-follow,html.no-touchevents 
 
 .new-avatar-editor-loading span {
     display: inline-block;
-    background: url(../images/img/spinner2.8f60205d.gif) no-repeat;
+    background: url(../images/img/spinner/lightgray-loading.e0eefd9c.gif) no-repeat;
     height: 16px;
     width: 16px
 }

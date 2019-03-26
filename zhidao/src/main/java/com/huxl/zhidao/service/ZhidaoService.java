@@ -2,9 +2,7 @@ package com.huxl.zhidao.service;
 
 import org.springframework.stereotype.Service;
 
-/**
- * Created by nowcoder on 2016/7/10.
- */
+
 @Service
 public class ZhidaoService {
     public String getMessage(int userId) {

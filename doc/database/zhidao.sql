@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : docker@192.168.99.100
+Source Server         : zhidao@docker
 Source Server Version : 50725
 Source Host           : 192.168.99.100:3306
 Source Database       : zhidao
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2019-03-22 21:54:53
+Date: 2019-03-27 17:40:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,17 +20,28 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `comment_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `create_date` datetime DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `status` int(11) DEFAULT NULL COMMENT '状态',
   `entity_id` int(11) DEFAULT NULL,
   `entity_type` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`comment_id`)
+  `content` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of comment
+-- Table structure for feed
 -- ----------------------------
+DROP TABLE IF EXISTS `feed`;
+CREATE TABLE `feed` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `data` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for login_ticket
@@ -43,65 +54,46 @@ CREATE TABLE `login_ticket` (
   `status` tinyint(4) DEFAULT NULL,
   `ticket` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of login_ticket
--- ----------------------------
-INSERT INTO `login_ticket` VALUES ('0', '7', '2019-03-23 21:50:43', '0', '20bfc404f263465bafb73455679fa173');
-INSERT INTO `login_ticket` VALUES ('7', '8', '2019-03-23 21:50:48', '0', '4b0434e0bbaa413fbbd91ba8c25c9173');
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for message
 -- ----------------------------
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `from_id` int(11) NOT NULL,
   `to_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
-  `conversation_id` int(11) NOT NULL,
-  `create_date` datetime NOT NULL,
+  `conversation_id` varchar(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `has_read` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of message
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for question
 -- ----------------------------
 DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
-  `question_id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `content` varchar(255) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
-  `comment_count` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '问题id',
+  `title` varchar(255) NOT NULL COMMENT '问题标题',
+  `content` varchar(255) NOT NULL COMMENT '问题内容',
+  `user_id` int(11) NOT NULL COMMENT '提问用户',
+  `created_date` datetime NOT NULL COMMENT '创建时间',
+  `comment_count` int(11) NOT NULL COMMENT '评论数',
   PRIMARY KEY (`question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of question
--- ----------------------------
-INSERT INTO `question` VALUES ('1', '大三的', '大神大神', '7', '2019-03-22 21:52:24', '0');
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `user_name` varchar(255) NOT NULL COMMENT '用户姓名',
+  `password` varchar(255) NOT NULL COMMENT '登录密码',
   `salt` varchar(255) DEFAULT NULL,
-  `head_url` varchar(255) DEFAULT '' COMMENT '用户表',
+  `head_url` varchar(255) DEFAULT '' COMMENT '用户头像地址',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('7', 'admin', 'F1371C56F4450ECC7CE77A83E13C252A', '314ad', '');
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;

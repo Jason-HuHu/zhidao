@@ -8,6 +8,9 @@ import java.security.MessageDigest;
 import java.util.Map;
 
 /**
+ * @author huxl
+ * @since 2019-03-27
+ *
  */
 public class ZhidaoUtil {
     private static final Logger logger = LoggerFactory.getLogger(ZhidaoUtil.class);

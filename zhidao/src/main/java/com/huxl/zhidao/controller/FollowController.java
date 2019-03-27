@@ -16,7 +16,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-oller
+/**
+ * @author huxl
+ * @since 2019-03-27
+ * 关注控制器
+ */
+@Controller
 public class FollowController {
     @Autowired
     FollowService followService;

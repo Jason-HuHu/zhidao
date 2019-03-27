@@ -17,7 +17,7 @@ import java.util.Date;
 
 /**
  * @author huxl
- * @createDate 2017/12/16 15:26
+ * @since  2017/12/16 15:26
  */
 @Controller
 public class QuestionComntroller {
@@ -38,7 +38,7 @@ public class QuestionComntroller {
             question.setContent(content);
             question.setCreatedDate(new Date());
             if (hostHolder.getUser() == null) {
-                question.setUserId(ZhidaoUtil.ANOYMOUS_USERID);
+                question.setUserId(ZhidaoUtil.ANONYMOUS_USERID);
             } else {
                 question.setUserId(hostHolder.getUser().getUserId());
             }

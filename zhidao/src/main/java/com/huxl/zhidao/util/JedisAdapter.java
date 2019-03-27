@@ -14,7 +14,11 @@ import java.util.List;
 import java.util.Set;
 
 
-
+/**
+ * @author huxl
+ * @since 2019-03-27
+ *
+ */
 @Service
 public class JedisAdapter implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(JedisAdapter.class);
@@ -24,8 +28,8 @@ public class JedisAdapter implements InitializingBean {
         System.out.println(String.format("%d, %s", index, obj.toString()));
     }
 
-    public static void mainx(String[] argv) {
-        Jedis jedis = new Jedis("redis://localhost:6379/9");
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("redis://192.168.99.100:6379/9");
         jedis.flushDB();
 
         // get set

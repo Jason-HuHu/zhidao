@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2019-03-27 17:40:32
+Date: 2019-04-01 17:42:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '评论Id',
   `user_id` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `status` int(11) DEFAULT NULL COMMENT '状态',
@@ -28,7 +28,7 @@ CREATE TABLE `comment` (
   `entity_type` varchar(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for feed
@@ -54,7 +54,7 @@ CREATE TABLE `login_ticket` (
   `status` tinyint(4) DEFAULT NULL,
   `ticket` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for message
@@ -69,7 +69,7 @@ CREATE TABLE `message` (
   `created_date` datetime NOT NULL,
   `has_read` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for question
@@ -83,7 +83,7 @@ CREATE TABLE `question` (
   `created_date` datetime NOT NULL COMMENT '创建时间',
   `comment_count` int(11) NOT NULL COMMENT '评论数',
   PRIMARY KEY (`question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for user
@@ -96,4 +96,4 @@ CREATE TABLE `user` (
   `salt` varchar(255) DEFAULT NULL,
   `head_url` varchar(255) DEFAULT '' COMMENT '用户头像地址',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;

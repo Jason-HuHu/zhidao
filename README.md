@@ -1,4 +1,15 @@
-# zhidao 
+<h1 align="center">知道</h1>
+<p align="center">
+<img src="https://github.com/Jason-HuHu/zhidao/blob/master/doc/images/%E7%9F%A5%E9%81%93.jpg?raw=true" width=""/>
+</p>
+
+<p align="center">
+  <a href="#联系我"><img src="https://img.shields.io/badge/chat-微信群-blue.svg" alt="微信群"></a>
+  <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-小胡哥哥VW-lightgrey.svg" alt="公众号"></a>
+  <a href="#投稿"><img src="https://img.shields.io/badge/support-投稿-critical.svg" alt="投稿"></a>
+</p>
+
+
 zhidao 是一个简单的在线问答网站，包括如下功能
 
 1. 用户注册、登录

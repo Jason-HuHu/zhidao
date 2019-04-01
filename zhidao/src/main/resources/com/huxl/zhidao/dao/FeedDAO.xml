@@ -20,7 +20,7 @@
                 #{item}
             </foreach>
         </if>
-        ORDER BY question_id DESC
+        ORDER BY id DESC
         LIMIT #{count}
     </select>
 </mapper>

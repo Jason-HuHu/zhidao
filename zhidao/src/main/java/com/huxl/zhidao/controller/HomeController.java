@@ -1,10 +1,8 @@
 package com.huxl.zhidao.controller;
 
-import com.huxl.zhidao.model.EntityType;
-import com.huxl.zhidao.model.Question;
-import com.huxl.zhidao.model.User;
-import com.huxl.zhidao.model.ViewObject;
+import com.huxl.zhidao.model.*;
 import com.huxl.zhidao.service.CommentService;
+import com.huxl.zhidao.service.FollowService;
 import com.huxl.zhidao.service.QuestionService;
 import com.huxl.zhidao.service.UserService;
 import org.slf4j.Logger;
@@ -34,10 +32,16 @@ public class HomeController {
     UserService userService;
     @Autowired
     CommentService commentService;
+    @Autowired
+    FollowService followService;
+    @Autowired
+    HostHolder hostHolder;
+
     @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String index(Model model,
                         @RequestParam(value = "pop", defaultValue = "0") int pop) {
         model.addAttribute("vos", getQuestions(0, 0, 10));
+        logger.info("进入首页...");
         return "index";
     }
 
@@ -49,14 +53,13 @@ public class HomeController {
         ViewObject vo = new ViewObject();
         vo.set("user", user);
         vo.set("commentCount", commentService.getUserCommentCount(userId));
-        //todo 关注service待实现
-//        vo.set("followerCount", followService.getFollowerCount(EntityType.ENTITY_USER, userId));
-//        vo.set("followeeCount", followService.getFolloweeCount(userId, EntityType.ENTITY_USER));
-//        if (hostHolder.getUser() != null) {
-//            vo.set("followed", followService.isFollower(hostHolder.getUser().getId(), EntityType.ENTITY_USER, userId));
-//        } else {
-//            vo.set("followed", false);
-//        }
+        vo.set("followerCount", followService.getFollowerCount(EntityType.ENTITY_USER, userId));
+        vo.set("followeeCount", followService.getFolloweeCount(userId, EntityType.ENTITY_USER));
+        if (hostHolder.getUser() != null) {
+            vo.set("followed", followService.isFollower(hostHolder.getUser().getUserId(), EntityType.ENTITY_USER, userId));
+        } else {
+            vo.set("followed", false);
+        }
         model.addAttribute("profileUser", vo);
         return "profile";
     }
@@ -68,8 +71,8 @@ public class HomeController {
         for (Question question : questionList) {
             ViewObject vo = new ViewObject();
             vo.set("question", question);
-//            vo.set("followCount", followService.getFollowerCount(EntityType.ENTITY_QUESTION, question.getId()));
-//            vo.set("user", userService.getUser(question.getUserId()));
+            vo.set("followCount", followService.getFollowerCount(EntityType.ENTITY_QUESTION, question.getUserId()));
+            vo.set("user", userService.getUser(question.getUserId()));
             vos.add(vo);
         }
         return vos;

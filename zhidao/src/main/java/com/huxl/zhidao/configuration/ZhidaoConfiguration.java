@@ -9,14 +9,16 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author JasonHu
- * @date 2017-12-13
+ * @author huxl
+ * @since 2017-12-13
  * 配置
  */
 @Component
 public class ZhidaoConfiguration extends WebMvcConfigurerAdapter {
+
     @Autowired
     PasswordInterceptor passwordInterceptor;
+
     @Autowired
     LoginRequiredInterceptor loginRequiredInterceptor;
 

@@ -3,8 +3,8 @@ package com.huxl.zhidao.model;
 import java.util.Date;
 
 /**
- * @author JasonHu
- * @Date 2017-12-11
+ * @author huxl
+ * @since  2017-12-11
  * 问题
  */
 public class Question {

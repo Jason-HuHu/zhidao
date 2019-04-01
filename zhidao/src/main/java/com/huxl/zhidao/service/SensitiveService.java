@@ -14,8 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author JasonHu
- * @Date 2017-12-11
+ * 敏感词过滤服务实现
+ * @author huxl
+ * @since 2019-04-01
  */
 @Service
 public class SensitiveService implements InitializingBean {

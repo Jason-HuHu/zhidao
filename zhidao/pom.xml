@@ -9,7 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <name>zhidao</name>
-    <description>Demo project for Spring Boot</description>
+    <description>在线问答系统</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

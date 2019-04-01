@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
+/**
+ * 评论控制器
+ * @author huxl
+ * @since 2019-04-01
+ */
 @Controller
 public class CommentController {
     private static final Logger logger = LoggerFactory.getLogger(CommentController.class);
@@ -56,8 +61,12 @@ public class CommentController {
             int count = commentService.getCommentCount(comment.getEntityId(), comment.getEntityType());
             questionService.updateCommentCount(comment.getEntityId(), count);
 
-            eventProducer.fireEvent(new EventModel(EventType.COMMENT).setActorId(comment.getUserId())
+            boolean ret = eventProducer.fireEvent(new EventModel(EventType.COMMENT).setActorId(comment.getUserId())
                     .setEntityId(questionId));
+
+            if (!ret) {
+                logger.warn("添加评论事件异常");
+            }
 
         } catch (Exception e) {
             logger.error("增加评论失败" + e.getMessage());

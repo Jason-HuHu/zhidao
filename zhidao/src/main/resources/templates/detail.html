@@ -32,12 +32,12 @@
             <div class="zm-side-section">
                 <div class="zm-side-section-inner" id="zh-question-side-header-wrap">
                     #if ($followed)
-                    <button class="follow-button zg-follow zg-btn-white js-follow-question" data-id="${question.id}"
+                    <button class="follow-button zg-follow zg-btn-white js-follow-question" data-id="${question.questionId}"
                             data-status="1">
                         取消关注
                     </button>
                     #else
-                    <button class="follow-button zg-follow zg-btn-green js-follow-question" data-id="${question.id}">
+                    <button class="follow-button zg-follow zg-btn-green js-follow-question" data-id="${question.questionId}">
                         关注问题
                     </button>
                     #end
@@ -91,7 +91,7 @@
                         <div class="zm-item-answer-author-info">
                             <a class="zm-item-link-avatar avatar-link" href="" target="_blank" data-tip="p$t$yingxiaodao">
                                 <img src="${comment.user.headUrl}" class="zm-list-avatar avatar"></a>
-                            <a class="author-link" data-tip="p$t$yingxiaodao" target="_blank" href="">${comment.user.name}</a>
+                            <a class="author-link" data-tip="p$t$yingxiaodao" target="_blank" href="">${comment.user.userName}</a>
                         </div>
                         <div class="zm-item-vote-info">
                                 <span class="voters text">
@@ -108,7 +108,7 @@
                     <a class="zg-anchor-hidden ac" name="22162611-comment"></a>
                     <div class="zm-item-meta answer-actions clearfix js-contentActions">
                         <div class="zm-meta-panel">
-                            <a itemprop="url" class="answer-data-link meta-item" target="_blank" href="">发布于 $data.format('yyyy-MM-dd HH:mm:ss', $comment.comment.createdDate)</a>
+                            <a itemprop="url" class="answer-data-link meta-item" target="_blank" href="">发布于$date.format('yyyy-MM-dd HH:mm:ss',$!{vo.comment.createdDate})</a>
                             <a href="" name="addcomment" class="meta-item toggle-comment js-toggleCommentBox">
                                 <i class="z-icon-comment"></i>4 条评论</a>
 
@@ -122,7 +122,7 @@
             <a name="draft"></a>
 
             <form action="/addComment" method="post">
-                <input type="hidden" name="questionId" value="$!{question.id}"/>
+                <input type="hidden" name="questionId" value="$!{question.questionId}"/>
             <div id="zh-question-answer-form-wrap" class="zh-question-answer-form-wrap">
                 <div class="zm-editable-editor-wrap" style="">
                     <div class="zm-editable-editor-outer">

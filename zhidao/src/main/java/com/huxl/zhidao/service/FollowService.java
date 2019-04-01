@@ -20,9 +20,9 @@ public class FollowService {
 
     /**
      * 用户关注了某个实体,可以关注问题,关注用户,关注评论等任何实体
-     * @param userId
-     * @param entityType
-     * @param entityId
+     * @param userId 用户Id
+     * @param entityType 实体类型 @see com.huxl.zhidao.model.EntityType
+     * @param entityId 实体唯一标识
      * @return
      */
     public boolean follow(int userId, int entityType, int entityId) {

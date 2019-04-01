@@ -214,6 +214,11 @@ public class JedisAdapter implements InitializingBean {
         return 0;
     }
 
+    /**
+     * 返回集合中元素的数量
+     * @param key 键
+     * @return 键对应的元素数量
+     */
     public long scard(String key) {
         Jedis jedis = null;
         try {
@@ -259,6 +264,12 @@ public class JedisAdapter implements InitializingBean {
         return null;
     }
 
+    /**
+     *
+     * @param key 列表
+     * @param value 添加的值
+     * @return 执行完后列表的长度
+     */
     public long lpush(String key, String value) {
         Jedis jedis = null;
         try {

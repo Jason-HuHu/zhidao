@@ -7,13 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * 点赞相关
+ * @author huxl
+ * @since 2019-04-01
  */
 @Service
 public class LikeService {
     @Autowired
     JedisAdapter jedisAdapter;
 
-
+    /**
+     *
+     * @param entityType 实体类型
+     * @param entityId 实体ID
+     * @return 点赞数量
+     */
     public long getLikeCount(int entityType, int entityId) {
         String likeKey = RedisKeyUtil.getLikeKey(entityType, entityId);
         return jedisAdapter.scard(likeKey);

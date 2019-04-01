@@ -3,15 +3,35 @@ package com.huxl.zhidao.async;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * 事件模型
+ * @author huxl
+ * @since 2019-04-01
+ */
 public class EventModel {
+    /**
+     * 事件类型
+     */
     private EventType type;
+    /**
+     * 参与用户
+     */
     private int actorId;
+    /**
+     * 实体类型
+     * @see com.huxl.zhidao.model.EntityType
+     */
     private int entityType;
+    /**
+     * 实体Id
+     */
     private int entityId;
+    /**
+     * 实体拥有者Id
+     */
     private int entityOwnerId;
 
-    private Map<String, String> exts = new HashMap<String, String>();
+    private Map<String, String> exts = new HashMap<>();
 
     public EventModel() {
 

@@ -16,23 +16,23 @@
                                 <div class="zg-right">
                                     #if ($profileUser.followed)
                                     <button class="zg-btn zg-btn-unfollow zm-rich-follow-btn small nth-0
-                                    js-follow-user" data-status="1" data-id="$profileUser.user.id">取消关注</button>
+                                    js-follow-user" data-status="1" data-id="$profileUser.user.userId">取消关注</button>
                                     #else
                                     <button class="zg-btn zg-btn-follow zm-rich-follow-btn small nth-0
-                                    js-follow-user" data-id="$profileUser.user.id">关注</button>
+                                    js-follow-user" data-id="$profileUser.user.userId">关注</button>
                                     #end
                                 </div>
-                                <a title="Barty" class="zm-item-link-avatar" href="/user/${profileUser.user.id}">
+                                <a title="Barty" class="zm-item-link-avatar" href="/user/${profileUser.user.userId}">
                                     <img src="${profileUser.user.headUrl}" class="zm-item-img-avatar">
                                 </a>
                                 <div class="zm-list-content-medium">
-                                    <h2 class="zm-list-content-title"><a data-tip="p$t$buaabarty" href="/user/${profileUser.user.id}" class="zg-link">${profileUser.user.name}</a></h2>
+                                    <h2 class="zm-list-content-title"><a data-tip="p$t$buaabarty" href="/user/${profileUser.user.userId}" class="zg-link">${profileUser.user.userName}</a></h2>
 
                                     <!-- <div class="zg-big-gray">计蒜客教研首席打杂</div> -->
                                     <div class="details zg-gray">
-                                        <a target="_blank" href="/user/${profileUser.user.id}/followers" class="zg-link-gray-normal">${profileUser.followerCount}粉丝</a>
+                                        <a target="_blank" href="/user/${profileUser.user.userId}/followers" class="zg-link-gray-normal">${profileUser.followerCount}粉丝</a>
                                         /
-                                        <a target="_blank" href="/user/${profileUser.user.id}/followees" class="zg-link-gray-normal">${profileUser.followeeCount}关注</a>
+                                        <a target="_blank" href="/user/${profileUser.user.userId}/followees" class="zg-link-gray-normal">${profileUser.followeeCount}关注</a>
                                         /
                                         <a target="_blank" href="#" class="zg-link-gray-normal">${profileUser.commentCount} 回答</a>
                                         /
@@ -62,7 +62,7 @@
                             <meta itemprop="ZReactor" data-id="389034" data-meta="">
                             <div class="feed-item-inner">
                                 <div class="avatar">
-                                    <a title="$!{vo.user.name}" data-tip="p$t$amuro1230" class="zm-item-link-avatar" target="_blank" href="https://nowcoder.com/people/amuro1230">
+                                    <a title="$!{vo.user.userName}" data-tip="p$t$amuro1230" class="zm-item-link-avatar" target="_blank" href="https://nowcoder.com/people/amuro1230">
                                         <img src="$!{vo.user.headUrl}" class="zm-item-img-avatar"></a>
                                 </div>
                                 <div class="feed-main">
@@ -78,7 +78,7 @@
                                             <div class="zm-item-vote">
                                                 <a class="zm-item-vote-count js-expand js-vote-count" href="javascript:;" data-bind-votecount="">${vo.followCount}</a></div>
                                             <div class="zm-item-answer-author-info">
-                                                <a class="author-link" data-tip="p$b$amuro1230" target="_blank" href="/user/$!{vo.user.id}">$!{vo.user.name}</a>
+                                                <a class="author-link" data-tip="p$b$amuro1230" target="_blank" href="/user/$!{vo.user.userId}">$!{vo.user.userName}</a>
                                                 ，$data.format('yyyy-MM-dd HH:mm:ss', $!{vo.question.createdDate})</div>
                                             <div class="zm-item-vote-info" data-votecount="4168" data-za-module="VoteInfo">
                                                 <span class="voters text">

@@ -1,6 +1,5 @@
 <h1 align="center">知道</h1>
 <p align="center">
-<img src="https://github.com/Jason-HuHu/zhidao/blob/master/doc/images/%E7%9F%A5%E9%81%93.jpg?raw=true" width=""/>
 </p>
 
 <p align="center">

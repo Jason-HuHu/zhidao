@@ -43,7 +43,7 @@ Spring-boot + mybatis + mysql +redis + solr
 
 | 工具名称 | 版本   | 备注     |
 | -------- | ------ | -------- |
-|          | 1.8    | 运行环境 |
+| JDK      | 1.8    | 运行环境 |
 | MySQL    | 5.7    | 数据库   |
 | Redis    | 4.0.16 | 缓存     |
 | Solr     | 6.2.0  | 搜索引擎 |
@@ -70,7 +70,7 @@ Spring-boot + mybatis + mysql +redis + solr
 
 # 联系我
 
-##TODO
+# TODO
 
 - [ ] 前后端分离
 - [ ] 后台管理模块

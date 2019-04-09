@@ -8,7 +8,7 @@
   <a href="https://github.com/Jason-HuHu/zhidao/issues"><img src="https://img.shields.io/badge/support-issue-critical.svg" alt="issue"></a>
 </p>
 
-声明：该项目是从《牛客高级项目课》中的实战项目延伸出来的项目，其中前端页面和部分代码直接使用，若涉及侵权，请联系作者删除！
+> 声明：该项目是从《牛客高级项目课》中的实战项目延伸出来的项目，其中前端页面和部分代码直接使用，若涉及侵权，请联系作者删除！
 
 **知道** 是一个简单的在线问答网站，寻找你想知道的一切，答出你知道的一切，包含如下功能
 
